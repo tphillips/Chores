@@ -13,9 +13,7 @@
 			<table class="table table-condensed table-hover table-striped table-bordered">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Frequency</th>
+						<th>Chore</th>
 						<th>Last Done</th>
 						<th>Due</th>
 						<th>Last Done By</th>
@@ -25,8 +23,6 @@
 				<tbody>
 					<tr ng-repeat="r in Results" class="due-{{ r.due }}">
 						<td><a href="Chore/View/{{ r.id }}">{{ r.name }}</a></td>
-						<td><a href="Chore/View/{{ r.id }}">{{ r.description }}</a></td>
-						<td><a href="Chore/View/{{ r.id }}">{{ r.frequency }}</a></td>
 						<td><a href="Chore/View/{{ r.id }}">{{ r.lastDoneDateString }}</a></td>
 						<td><a href="Chore/View/{{ r.id }}">{{ r.nextDueDateString }}</a></td>
 						<td><a href="Chore/View/{{ r.id }}">{{ r.lastDonePersonName }}</a></td>
