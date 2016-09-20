@@ -15,14 +15,6 @@ namespace Chores
         public static void Main(string[] args)
         {
 
-            /*
-            ChoreBLL bll = new ChoreBLL();
-            for (int x = 0; x < 100000; x++)
-            {
-                bll.Create(new Chore() { Name = "test" + x });
-            }
-            */
-
             var config = new ConfigurationBuilder()
                 .AddCommandLine(args)
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
