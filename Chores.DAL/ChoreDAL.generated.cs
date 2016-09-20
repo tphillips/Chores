@@ -42,10 +42,16 @@ namespace Chores.DAL
 
 		public int _Create(Chore entity)
 		{
-			entity.ID = db.Chores.Count + 1;
+			entity.ID = GetNextID();
 			db.Chores.Add(entity);
 			db.Save();
 			return entity.ID;
+		}
+
+		private int GetNextID()
+		{
+			if (db.Chores.Count == 0) { return 1; }
+			return (from Chore c in db.Chores select c.ID).Max() + 1;
 		}
 		
 		public int _Update(Chore entity)
