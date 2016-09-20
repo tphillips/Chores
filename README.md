@@ -1,7 +1,7 @@
 # A POC asp.dotnetcore app
 
 This was greated by
-'''yo aspnet
+```yo aspnet
 
 The readme created said:
 We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
