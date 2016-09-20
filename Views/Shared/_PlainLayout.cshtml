@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en"@(ViewBag.ngApp != null ? @Html.Raw(" ng-app=\"" + @ViewBag.ngApp + "\"") : "")>
+	@Html.Partial("_Head")
+	<body@(ViewBag.ngController != null ? @Html.Raw(" ng-controller=\"" + @ViewBag.ngController + "\"") : "")>
+		
+	<nav class="navbar navbar-default navbar-static-top" ng-show="!dialog">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href=""><img src="/images/cleaning.png" height="31" style="margin-top:-7px;"/></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					
+					<li><a href="/Chore">Chores</a></li>
+					
+			</div>
+		</div>
+	</nav>
+
+		<div class="container">
+			@RenderBody()
+		</div>
+
+		<div id="alert" style="display:none" title="XXNAMESPACEXX">
+			<p><span id="alertMessage">Default message</span></p>
+		</div>
+
+		<div class="modal fade" id="dlgModal" tabindex="-1" role="dialog" aria-labelledby="dlgModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<!--div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					</div-->
+					<div class="modal-body">
+						<iframe id="dlgFrame" frameborder="0" style="width:100%; height:600px;" ng-src="{{ dialogSrc }}"></iframe>
+					</div>
+					<!--div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div-->
+				</div>
+			</div>
+		</div>
+
+		<div class="searchpopup" ng-show="searching">
+			<img src="/images/cleaning.png"/>
+		</div>
+
+	</body>
+
+	<script>
+
+		function niceAlert(msg) {
+			$("#alertMessage").text(msg);
+			$("#alert").dialog({
+				modal: true,
+				dialogClass: "no-close",
+				autoOpen: true,
+				show: { effect: "shake", duration: 100 },
+				hide: { effect: "slide", duration: 100 },
+				buttons:
+				[
+					{
+						text: "OK",
+						click: function () {
+							$(this).dialog("close");
+						}
+					}
+				]
+			});
+		}
+
+		$(window).on('load', function() {
+			$(".date").datepicker()
+			$(".date").datepicker("option", "dateFormat", "dd M yy");
+		});
+
+		function showDialog(url) {
+			$('#dlgFrame').attr('src', url)
+			$('#dlgModal').modal({
+				keyboard: false
+			})
+		}
+
+		function closeDialog() {
+			$('#dlgModal').modal('hide');
+		}
+
+	</script>
+</html>
