@@ -19,7 +19,7 @@ namespace Chores.Entities
 		{ 
 			get
 			{
-				return NextDueDate != null && NextDueDate > DateTime.MinValue ? ((DateTime)NextDueDate).ToString("dd MMM yyyy") : "-";
+				return NextDueDate != null && NextDueDate > DateTime.MinValue ? ((DateTime)NextDueDate).ToString("dd MMM") : "-";
 			}
 			set
 			{
