@@ -1,5 +1,7 @@
+
 sudo docker cp Chores:app/chore.json chore.json
 sudo docker cp Chores:app/person.json person.json
+git pull origin master
 echo Cleaning . . .
 sudo docker stop Chores
 sudo docker rm Chores
