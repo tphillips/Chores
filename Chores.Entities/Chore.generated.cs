@@ -36,7 +36,7 @@ namespace Chores.Entities
 		{ 
 			get
 			{
-				return LastDoneDate != null && LastDoneDate > DateTime.MinValue ? ((DateTime)LastDoneDate).ToString("dd MMM") : "-";
+				return LastDoneDate != null && LastDoneDate > DateTime.MinValue ? ((DateTime)LastDoneDate).ToString("dd MMM yy") : "-";
 			}
 			set
 			{
