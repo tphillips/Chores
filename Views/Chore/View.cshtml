@@ -119,6 +119,7 @@
 				{
 					$http.put('/api/ChoreAPI/@ViewBag.ChoreID', $scope.chore).success(function (data) {
 						niceAlert("Saved");
+						window.setTimeout('window.location="/Chore"', 2000);
 					}).error(function (data) {
 						niceAlert("Error saving");
 					});
@@ -133,7 +134,7 @@
 						}
 						else
 						{
-							window.setTimeout('window.history.back()', 2000);
+							window.setTimeout('window.location="/Chore"', 2000);
 						}
 					}).error(function (data) {
 						niceAlert("Error creating");
@@ -148,7 +149,7 @@
 				{
 					$http.delete('/api/ChoreAPI/@ViewBag.ChoreID').success(function (data) {
 						niceAlert("Deleted");
-						window.location.href='../../Chore';
+						window.setTimeout('window.location="/Chore"', 2000);
 					}).error(function (data) {
 						niceAlert("Error deleting");
 					});
